@@ -1,0 +1,23 @@
+{% extends 'main/components/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
+
+{% block title %}
+    {{ obj.name }}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'main/components/navbar.html' %}
+{% endblock %}
+
+
+{% block content  %}
+    <div class="cotainer my-4">
+        <div class="display-3">
+            {{ obj.name }}
+        </div>
+    </div>
+{% endblock %}

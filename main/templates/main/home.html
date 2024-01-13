@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="{% static 'home.css' %}">
 {% endblock %}
 
+{% block scripts %}
+<script defer src="{% static 'js/main.js' %}"></script>
+{% endblock %}
 {% block title %}Home{% endblock %}
 
 {% block navbar %}
@@ -17,15 +20,15 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Filloni Kuizin</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  ...
+                <div class="modal-body" id="modalBodyConfirm">
+                  
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Mbrapa</button>
+                  <button type="button" id="startButton" class="btn btn-success">Fillo</button>
                 </div>
               </div>
             </div>
@@ -42,9 +45,12 @@
                 data-questions="{{ obj.number_of_questions }}"
                 data-difficulty="{{ obj.difficulty }}"
                 data-time="{{ obj.time }}"
-                data-pass="{{ obj.required_score_to_pass }}" data-bs-toggle="modal" data-bs-target="#quizStartModal">
+                data-pass="{{ obj.required_score_to_pass }}"
+                data-bs-toggle="modal"
+                data-bs-target="#quizStartModal">
                 {{ obj.name }}
                 </button>
+                <br>
           {% endfor %}
     </div>
 

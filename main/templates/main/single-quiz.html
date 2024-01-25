@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{% static 'home.css' %}">
 {% endblock %}
 
+{% block scripts %}
+<script defer src="{% static 'js/quiz.js' %}"></script>
+{% endblock %}
+
 {% block title %}
     {{ obj.name }}
 {% endblock %}
@@ -15,9 +19,21 @@
 
 
 {% block content  %}
-    <div class="cotainer my-4">
-        <div class="display-3">
-            {{ obj.name }}
+    <div class="container my-4">
+        <div>
+            <b class="h3">{{ obj.name }}</b>
+            <p>
+              Rezultati per te kaluar : {{ obj.required_score_to_pass }}%  
+            </p>
         </div>
+        <hr>
+        <form id="quiz-form">
+            {% csrf_token %}
+            <div id="quiz-box">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Save</button>
+        </form>
+        <div class="score-box"></div>
+        <div class="result-box"></div>
     </div>
 {% endblock %}

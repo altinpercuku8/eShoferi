@@ -1,4 +1,5 @@
 from django.db import models
+import random
 
 # LLojet e kuizeve sipas ne baze te veshtiresise
 
@@ -20,5 +21,7 @@ class Quiz(models.Model):
     def __str__(self):
         return self.name
     
-    def get_questions(self):
-        return self.questions_set_all()[:self.number_of_questions]
+    def get_question(self):
+        questions = list(self.questions_set.all())
+        random.shuffle(questions)
+        return questions[:self.number_of_questions]

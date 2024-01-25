@@ -11,8 +11,8 @@ class Questions(models.Model):
     def __str__(self):
         return str(self.text)
     
-    def get_anwsers(self):
-        return self.answer_set.all()
+    def get_answer(self):
+        return self.anwser_set.all()
 
 # Objekti i pergjgjjeve 
 
@@ -24,6 +24,3 @@ class Anwser(models.Model):
 
     def __str__(self):
         return f"Question {self.question}, answer : {self.text}"
-    
-    def get_question(self):
-        return self.questions_set.all()

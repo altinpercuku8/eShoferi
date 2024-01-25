@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'questions',
     'results',
+    'identity',
 ]
 
 MIDDLEWARE = [
